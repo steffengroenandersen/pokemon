@@ -1,16 +1,18 @@
 package dk.kea.pokemon.repository;
 
 import dk.kea.pokemon.model.Pokemon;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class PokemonRepository {
 
 
     // DATABASE PROPERTIES
-    private final static String DB_URL = "jdbc:mysql://localhost:3306/pokemon";
+    private final static String DB_URL = "jdbc:mysql://localhost:3306/pokedex";
     private final static String UID = "root";
     private final static String PWD = "sesame80";
 
@@ -24,7 +26,7 @@ public class PokemonRepository {
             Statement statement = connection.createStatement();
 
             // CREATE SQL_QUERY AND EXECUTE
-            final String SQL_QUERY = "SELECT * FROM pokedex";
+            final String SQL_QUERY = "SELECT * FROM pokemon";
             ResultSet resultSet = statement.executeQuery(SQL_QUERY);
 
             // READ resultSet AND ADD TO pokemonList

@@ -10,13 +10,13 @@ public class HomeController {
 
     PokemonRepository pokemonRepository;
 
-    public Homecontroller(PokemonRepository pokemonRepository){
+    public HomeController(PokemonRepository pokemonRepository){
         this.pokemonRepository = pokemonRepository;
     }
 
     @GetMapping("/")
     public String index(Model model){
-        model.addAttribute("pokemons", pokemonRepository.getAllPokemons());
+        model.addAttribute("pokedex", pokemonRepository.getAllPokemons());
         return "index";
     }
 }

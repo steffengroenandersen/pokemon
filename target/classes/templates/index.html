@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokedex</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Pokedex!</h1>
+    <table>
+      <thead>
+        <th>Image</th>
+        <th>Pokedex_number</th>
+        <th>Name</th>
+        <th>Speed</th>
+        <th>Special Defence</th>
+        <th>Special Attack</th>
+        <th>Defence</th>
+        <th>Attack</th>
+        <th>HP</th>
+        <th>Primary Type</th>
+        <th>Secondary Type</th>
+        <th></th>
+      </thead>
+      <tbody>
+        <tr th:each="pokedex : ${pokedex}">
+          <td><img th:src="@{'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + ${pokedex.pokedex_number} + '.png'}"></td>
+          <td th:text="${pokedex.pokedex_number}"></td>
+          <td th:text="${pokedex.name}"></td>
+          <td th:text="${pokedex.speed}"></td>
+          <td th:text="${pokedex.special_defence}"></td>
+          <td th:text="${pokedex.special_attack}"></td>
+          <td th:text="${pokedex.defence}"></td>
+          <td th:text="${pokedex.attack}"></td>
+          <td th:text="${pokedex.hp}"></td>
+          <td th:text="${pokedex.primary_type}"></td>
+          <td th:text="${pokedex.secondary_type}"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+
+</body>
+</html>

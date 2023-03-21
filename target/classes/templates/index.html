@@ -23,7 +23,7 @@
         <th></th>
       </thead>
       <tbody>
-        <tr th:each="pokemon : ${pokemon}">
+        <tr th:each="pokemon : ${pokemons}">
           <td><img th:src="@{'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + ${pokemon.pokedex_number} + '.png'}"></td>
           <td th:text="${pokemon.pokedex_number}"></td>
           <td th:text="${pokemon.name}"></td>

@@ -16,7 +16,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String index(Model model){
-        model.addAttribute("pokedex", pokemonRepository.getAllPokemons());
+        model.addAttribute("pokemon", pokemonRepository.getAllPokemons());
         return "index";
     }
 }

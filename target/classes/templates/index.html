@@ -23,18 +23,18 @@
         <th></th>
       </thead>
       <tbody>
-        <tr th:each="pokedex : ${pokedex}">
-          <td><img th:src="@{'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + ${pokedex.pokedex_number} + '.png'}"></td>
-          <td th:text="${pokedex.pokedex_number}"></td>
-          <td th:text="${pokedex.name}"></td>
-          <td th:text="${pokedex.speed}"></td>
-          <td th:text="${pokedex.special_defence}"></td>
-          <td th:text="${pokedex.special_attack}"></td>
-          <td th:text="${pokedex.defence}"></td>
-          <td th:text="${pokedex.attack}"></td>
-          <td th:text="${pokedex.hp}"></td>
-          <td th:text="${pokedex.primary_type}"></td>
-          <td th:text="${pokedex.secondary_type}"></td>
+        <tr th:each="pokemon : ${pokemon}">
+          <td><img th:src="@{'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + ${pokemon.pokedex_number} + '.png'}"></td>
+          <td th:text="${pokemon.pokedex_number}"></td>
+          <td th:text="${pokemon.name}"></td>
+          <td th:text="${pokemon.speed}"></td>
+          <td th:text="${pokemon.special_defence}"></td>
+          <td th:text="${pokemon.special_attack}"></td>
+          <td th:text="${pokemon.defence}"></td>
+          <td th:text="${pokemon.attack}"></td>
+          <td th:text="${pokemon.hp}"></td>
+          <td th:text="${pokemon.primary_type}"></td>
+          <td th:text="${pokemon.secondary_type}"></td>
         </tr>
       </tbody>
     </table>

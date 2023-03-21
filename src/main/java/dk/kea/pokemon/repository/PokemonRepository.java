@@ -12,9 +12,9 @@ public class PokemonRepository {
 
 
     // DATABASE PROPERTIES
-    private final static String DB_URL = "jdbc:mysql://kea2023-server.mysql.database.azure.com:3306/pokedex";
-    private final static String UID = "keauser";
-    private final static String PWD = "Sesame80";
+    private final static String DB_URL = "jdbc:mysql://localhost:3306/pokedex";
+    private final static String UID = "root";
+    private final static String PWD = "sesame80";
 
     public List<Pokemon> getAllPokemons(){
 

@@ -1,6 +1,7 @@
 package dk.kea.pokemon.repository;
 
 import dk.kea.pokemon.model.Pokemon;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;
@@ -12,9 +13,19 @@ public class PokemonRepository {
 
 
     // DATABASE PROPERTIES
-    private final static String DB_URL = "jdbc:mysql://localhost:3306/pokedex";
+    /*
+    private final static String DB_URL = "jdbc:mysql://kea2023-server.mysql.database.azure.com:3306/pokedex";
     private final static String UID = "root";
     private final static String PWD = "sesame80";
+    */
+
+    @Value("${spring.datasource.url}")
+    private String DB_URL;
+    @Value("${spring.datasource.username}")
+    private String UID;
+    @Value("${spring.datasource.password}")
+    private String PWD;
+
 
     public List<Pokemon> getAllPokemons(){
 

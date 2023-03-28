@@ -70,4 +70,85 @@ public class PokemonRepository {
         return pokemonList;
     }
 
+    public void addPokemon(Pokemon pokemon){
+
+        try{
+            // CONNECT TO DATABASE
+            Connection connection = DriverManager.getConnection(DB_URL, UID, PWD);
+            final String ADD_QUERY = "INSERT INTO pokemon(pokedex_number, name, speed, special_defence, special_attack, defence, attack, hp, primary_type, secondary_type) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(ADD_QUERY);
+
+            // SET ATTRIBUTES IN PREPAREDSTATEMENT
+            preparedStatement.setInt(1, pokemon.getPokedex_number());
+            preparedStatement.setString(2, pokemon.getName());
+            preparedStatement.setInt(3, pokemon.getSpeed());
+            preparedStatement.setInt(4, pokemon.getSpecial_defence());
+            preparedStatement.setInt(5, pokemon.getSpecial_attack());
+            preparedStatement.setInt(6, pokemon.getDefence());
+            preparedStatement.setInt(7, pokemon.getAttack());
+            preparedStatement.setInt(8, pokemon.getHp());
+            preparedStatement.setString(9, pokemon.getPrimary_type());
+            preparedStatement.setString(10, pokemon.getSecondary_type());
+
+            // EXECUTE STATEMENT
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e){
+            System.out.println("Failure! Could not add object to database!");
+            e.printStackTrace();
+        }
+    }
+
+    public void updatePokemon(Pokemon pokemon){
+        final String UPDATE_QUERY = "UPDATE pokemon SET" +
+                "pokedex_number = ?," +
+                "name = ?," +
+                "speed = ?," +
+                "special_defence = ?," +
+                "special_attack = ?," +
+                "defence = ?," +
+                "attack = ?," +
+                "hp = ?," +
+                "primary_type = ?," +
+                "secondary_type = ?" +
+                " WHERE pokedex_number = ?";
+
+        try{
+            // CONNECT TO DATABASE
+            Connection connection = DriverManager.getConnection(DB_URL, UID, PWD):
+            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_QUERY);
+
+            // SET PARAMETERS
+            int pokedex_number = pokemon.getPokedex_number();
+            String name = pokemon.getName();
+            int speed = pokemon.getSpeed();
+            int special_defence = pokemon.getSpecial_defence();
+            int special_attack = pokemon.getSpecial_attack();
+            int defence = pokemon.getDefence();
+            int attack = pokemon.getAttack();
+            int hp = pokemon.getHp();
+            String primary_type = pokemon.getPrimary_type();
+            String secondary_type = pokemon.getSecondary_type();
+
+            preparedStatement.setInt(1, pokedex_number);
+            preparedStatement.setString(2, name);
+            preparedStatement.setInt(3, speed);
+            preparedStatement.setInt(4, special_defence);
+            preparedStatement.setInt(5, special_attack);
+            preparedStatement.setInt(6, defence);
+            preparedStatement.setInt(7, attack);
+            preparedStatement.setInt(8, hp);
+            preparedStatement.setString(9, primary_type);
+            preparedStatement.setString(10, secondary_type);
+
+            // EXECUTE STATEMENT
+            preparedStatement.executeUpdate();
+
+        } catch(SQLException e){
+            System.out.println("Failure! Could not update pokemon.");
+            e.printStackTrace();
+        }
+    }
+
+
 }

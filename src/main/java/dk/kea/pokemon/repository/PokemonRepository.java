@@ -1,6 +1,7 @@
 package dk.kea.pokemon.repository;
 
 import dk.kea.pokemon.model.Pokemon;
+import dk.kea.pokemon.utility.ConnectionManager;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
@@ -33,7 +34,7 @@ public class PokemonRepository {
 
         try{
             // ESTABLISH CONNECTION TO DATABASE
-            Connection connection = DriverManager.getConnection(DB_URL, UID, PWD);
+            Connection connection = ConnectionManager.getConnection(DB_URL, UID, PWD);
             Statement statement = connection.createStatement();
 
             // CREATE SQL_QUERY AND EXECUTE
@@ -74,7 +75,7 @@ public class PokemonRepository {
 
         try{
             // CONNECT TO DATABASE
-            Connection connection = DriverManager.getConnection(DB_URL, UID, PWD);
+            Connection connection = ConnectionManager.getConnection(DB_URL, UID, PWD);
             final String ADD_QUERY = "INSERT INTO pokemon(pokedex_number, name, speed, special_defence, special_attack, defence, attack, hp, primary_type, secondary_type) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(ADD_QUERY);
 
@@ -115,7 +116,7 @@ public class PokemonRepository {
 
         try{
             // CONNECT TO DATABASE
-            Connection connection = DriverManager.getConnection(DB_URL, UID, PWD):
+            Connection connection = ConnectionManager.getConnection(DB_URL, UID, PWD):
             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_QUERY);
 
             // SET PARAMETERS
